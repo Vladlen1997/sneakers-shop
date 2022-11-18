@@ -1,33 +1,39 @@
-import React from 'react';
+import React from "react";
+import classes from "./Header.module.scss";
 
 
 const Header = () => {
     return (
-        <header className='d-flex justify-between align-center p-40'>
-            <div className='d-flex align-center'>
+        <header className={classes.header}>
+            <div className="header_left d-flex align-center">
                 <img width={40} height={40} src="/img/logo.svg" alt="logo"/>
-                <div>
-                    <h3 className='text-uppercase'>Sneakers</h3>
-                    <p className='opacity-5'>Магазин лучших кроссовок и цен</p>
+
+
+                <div className={classes.header_info}>
+
+                    <h3 className="text-uppercase opacity-5">React Sneakers</h3>
+                    <p>магазин лучших кроссовок</p>
+
                 </div>
+
             </div>
 
-            <ul className='d-flex'>
-                <li className='mr-30'>
-                    <img width={18} height={18} src="/img/cart.svg" alt="card"/>
-                    <span>1205р.</span>
-                </li>
-                <li>
-                    <img width={18} height={18} src="/img/heart.svg" alt="like"/>
-                </li>
-                <li>
-                    <img src="/img/Union.svg" alt="login"/>
-                </li>
+            <ul className="header_right d-flex">
+                <li className="mr-30">
 
+                    <img src="/img/cart.svg" alt="cart"/>
+
+                    <span>1205 руб.</span>
+                </li>
+                <li>
+                    <img src="/img/Union.svg" alt="user"/>
+                </li>
             </ul>
+
         </header>
     )
 }
+
 
 
 export default Header;
