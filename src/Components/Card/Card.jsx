@@ -1,22 +1,28 @@
-import React from 'react';
+import React from "react";
+import classes from "./Card.module.scss";
 
 
-const Card = () => {
+
+const Card = (props) => {
+
     return (
-        <div className='card'>
-
-            <div className='favorite'>
-                <img src="/img/like-state.svg" alt="unliked"/>
+        <div className={classes.card}>
+            <div className={classes.favorite}>
+                <img src="/img/like.svg" alt="unliked"/>
             </div>
 
-            <img width={133} height={112} src="/img/sneakers/sneak1.jpg" alt="sneaker"/>
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className='d-flex justify-between align-center'>
-                <div className='d-flex flex-column'>
+            <img width={133} height={112} src={props.image} alt="card"/>
+            <h5>
+                {props.name}
+            </h5>
+
+            <div className="card-bottom d-flex justify-between align-center">
+                <div className="d-flex flex-column">
                     <span>Цена:</span>
-                    <b>12999 р.</b>
+                    <b>{props.price}</b>
                 </div>
-                <button className='button'><img width={11} height={11} src="/img/vector.svg" alt="button"/>
+                <button className={classes.button}>
+                    <img width={11} height={11} src="/img/vector-btn.svg" alt="plus"/>
                 </button>
             </div>
         </div>
