@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Header.module.scss";
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={classes.header}>
             <div className="header_left d-flex align-center">
@@ -19,7 +19,7 @@ const Header = () => {
             </div>
 
             <ul className="header_right d-flex">
-                <li className="mr-30">
+                <li onClick={props.onCartClick} className="mr-30 cu-p">
 
                     <img src="/img/cart.svg" alt="cart"/>
 
@@ -33,7 +33,6 @@ const Header = () => {
         </header>
     )
 }
-
 
 
 export default Header;
