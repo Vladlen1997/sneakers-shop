@@ -2,31 +2,38 @@ import React from "react";
 import classes from "./Drawer.module.scss";
 
 
-const Drawer = () => {
+const Drawer = ({onClose, items = []}) => {
     return (
-        <div style={{display: 'none'}} className={classes.overlay}>
+        <div className={classes.overlay}>
             <div className={classes.drawer}>
                 <h2 className="mb-15 d-flex justify-between align-center">
                     Корзина
-                    <img className="remove-cart cu-p" src="/img/btn-remove.svg" alt="Remove"/>
+                    <img onClick={onClose} className={classes.remove_cart} src="/img/btn-remove.svg"
+                         alt="Remove"/>
 
                 </h2>
 
                 <div className={classes.items}>
-                    <div className="cartItem d-flex align-center mb-20">
+                    {
+                        items.map((obj) => (
+                            <div className={classes.cartItem}>
 
-                        <div style={{backgroundImage: 'url(/img/sneakers/sneak1.jpg)'}}
-                             className="cartItemImg"></div>
+                                <div style={{backgroundImage: `url(${obj.image})`}}
+                                     className={classes.cartItemImg}></div>
 
-                        <div className="mr-20 flex">
-                            <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-                            <b>12 999 руб.</b>
-                        </div>
-                        <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove"/>
-                    </div>
+                                <div className="mr-20 flex">
+                                    <p className="mb-5">{obj.name}</p>
+                                    <b>{obj.price} руб.</b>
+                                </div>
+                                <img className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove"/>
+                            </div>
+                        )
+
+                        )
+                    }
                 </div>
-                <div className="cartTotalBlock">
-                    <ul className="cartTotalBlock mb-25">
+                <div className={classes.cartTotalBlock}>
+                    <ul className="mb-25">
                         <li className="d-flex justify-between">
                             <span>Цена:</span>
                             <div></div>
@@ -39,7 +46,7 @@ const Drawer = () => {
                         </li>
                     </ul>
 
-                    <div className="cart-button">
+                    <div className={classes.cart_button}>
                         <button className="greenButton">
                             Оформить заказ
                             <img src="/img/Vector.svg" alt="Vector"/>
