@@ -24,6 +24,11 @@ const App = () => {
 
     const [cartOpened, setCartOpened] = React.useState(false);
 
+    const onAddToCart = (obj) => {
+        setCartItems((prev) => [...prev, obj])
+    }
+    console.log(cartItems)
+
 
     return (
 
@@ -42,7 +47,8 @@ const App = () => {
                 <Content/>
 
                 <div className="sneakers d-flex flex-wrap">
-                    {items.map((obj) => <Card name={obj.name} price={obj.price} image={obj.image}/>)}
+                    {items.map((item) => <Card name={item.name} price={item.price} image={item.image}
+                                               onPlus={(obj) => onAddToCart(obj)}/>)}
 
 
                 </div>
