@@ -2,8 +2,16 @@ import React from "react";
 import classes from "./Card.module.scss";
 
 
+const Card = ({image, name, price, onPlus}) => {
 
-const Card = (props) => {
+    const [isAdded, setIsAdded] = React.useState(false);
+
+
+    const onPlusClick = () => {
+        onPlus({name, image, price});
+        setIsAdded(!isAdded);
+    }
+
 
     return (
         <div className={classes.card}>
@@ -11,19 +19,18 @@ const Card = (props) => {
                 <img src="/img/like.svg" alt="unliked"/>
             </div>
 
-            <img width={133} height={112} src={props.image} alt="card"/>
+            <img width={133} height={112} src={image} alt="card"/>
             <h5>
-                {props.name}
+                {name}
             </h5>
 
             <div className="card-bottom d-flex justify-between align-center">
                 <div className="d-flex flex-column">
                     <span>Цена:</span>
-                    <b>{props.price}</b>
+                    <b>{price} руб.</b>
                 </div>
-                <button className={classes.button}>
-                    <img width={11} height={11} src="/img/vector-btn.svg" alt="plus"/>
-                </button>
+                <img onClick={onPlusClick} className={classes.plus}
+                     src={isAdded ? "/img/button-checked.svg" : "/img/vector-btn.svg"} alt="plus"/>
             </div>
         </div>
     )
