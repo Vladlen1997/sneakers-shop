@@ -17,19 +17,59 @@
   background: #FFFFFF;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
 
   .items {
     flex: 1;
     overflow: auto;
+
+    .cartItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: 1px solid #f3f3f3;
+      border-radius: 30px;
+      padding: 15px;
+      overflow: hidden;
+
+
+      .cartItemImg {
+        width: 70px;
+        height: 70px;
+        background-size: contain;
+        background-position: 0 -3px;
+        background-repeat: no-repeat;
+        margin-right: 20px;
+      }
+
+      p {
+        font-size: 16px;
+
+      }
+
+      b {
+        font-size: 14px;
+      }
+
+      .removeBtn {
+        opacity: 0.7;
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+          transform: translateY(-3px);
+        }
+
+      }
+    }
   }
 
   h2 {
     margin: 0;
 
-    .remove-cart {
+    .remove_cart {
       opacity: 0.7;
       transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
       cursor: pointer;
@@ -59,7 +99,7 @@
     top: -4px;
   }
 
-  .cart-button {
+  .cart_button {
     margin-bottom: 30px;
 
     button {
@@ -104,40 +144,5 @@
 }
 
 
-.cartItem {
-  border: 1px solid #f3f3f3;
-  border-radius: 30px;
-  padding: 15px;
-  overflow: hidden;
 
 
-  .cartItemImg {
-    width: 70px;
-    height: 70px;
-    background-size: contain;
-    background-position: 0 -3px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-  }
-
-  p {
-    font-size: 16px;
-
-  }
-
-  b {
-    font-size: 14px;
-  }
-
-  .removeBtn {
-    opacity: 0.7;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-      transform: translateY(-3px);
-    }
-
-  }
-}
